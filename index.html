@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODOリスト</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<div id="app">
+    <h2>TODOリスト</h2>
+    <form>
+        <input type="text" v-model="newTodo">
+        <button v-on:click="addTodo">タスクを追加</button>
+    </form>
+    <ul>
+        <li v-for="(todo, index) in todos">
+            <input type="checkbox" v-model="todo.isDone">
+            <span v-bind:class="{ done: todo.isDone }">{{ todo.name }}</span>
+            <button v-on:click="deleteTodo(index)">Delete</button>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="main.js"></script>
+</html>
